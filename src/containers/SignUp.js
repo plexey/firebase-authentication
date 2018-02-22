@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-
 import { db, auth } from "../firebase";
-
 import * as routes from "../constants/routes";
+import Content from "../components/Content";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import ContentHeading from "../components/ContentHeading";
 
 const SignUpPage = ({ history }) => (
-  <div>
-    <h1>SignUp</h1>
+  <Content>
+    <ContentHeading>SignUp</ContentHeading>
     <SignUpForm history={history} />
-  </div>
+  </Content>
 );
 
 const INITIAL_STATE = {
@@ -67,7 +69,7 @@ class SignUpForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+        <Input
           value={username}
           onChange={event =>
             this.setState(byPropKey("username", event.target.value))
@@ -75,7 +77,7 @@ class SignUpForm extends Component {
           type="text"
           placeholder="Full Name"
         />
-        <input
+        <Input
           value={email}
           onChange={event =>
             this.setState(byPropKey("email", event.target.value))
@@ -83,7 +85,7 @@ class SignUpForm extends Component {
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <Input
           value={passwordOne}
           onChange={event =>
             this.setState(byPropKey("passwordOne", event.target.value))
@@ -91,7 +93,7 @@ class SignUpForm extends Component {
           type="password"
           placeholder="Password"
         />
-        <input
+        <Input
           value={passwordTwo}
           onChange={event =>
             this.setState(byPropKey("passwordTwo", event.target.value))
@@ -99,9 +101,9 @@ class SignUpForm extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button disabled={isInvalid} type="submit">
           Sign Up
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>
