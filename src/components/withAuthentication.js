@@ -23,12 +23,11 @@ const withAuthentication = Component => {
     onSetAuthUser: authUser => dispatch({ type: "AUTH_USER_SET", authUser })
   });
 
-  return connect(null, mapDispatchToProps)(WithAuthentication);
-
   WithAuthentication.childContextTypes = {
     authUser: PropTypes.object
   };
 
+  return connect(null, mapDispatchToProps)(WithAuthentication);
 };
 
 export default withAuthentication;
