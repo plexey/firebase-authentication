@@ -10,30 +10,57 @@ import HomePage from "./Home";
 import AccountPage from "./Account";
 import * as routes from "../constants/routes";
 import withAuthentication from "./withAuthentication";
-import styled from 'styled-components';
+import ContentWrapper from '../components/ContentWrapper';
+import styled, { ThemeProvider } from "styled-components";
+
+const theme = {
+  brandColor: "hsl(0, 70%, 60%)",
+  textColor: "hsl(0, 0%, 20%)",
+  font: "'Oxygen', sans-serif",
+};
 
 const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
+  display: grid;
+  grid-template-rows: [main-1] 60px [main-2] auto [main-3];
+`;
 
 const App = () => {
   baseStyles();
   return (
     <Router>
-      <AppContainer>
-        <Navigation />
-        <Route exact path={routes.LANDING} component={() => <LandingPage />} />
-        <Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
-        <Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
-        <Route
-          exact
-          path={routes.PASSWORD_FORGET}
-          component={() => <PasswordForgetPage />}
-        />
-        <Route exact path={routes.HOME} component={() => <HomePage />} />
-        <Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
-      </AppContainer>
+      <ThemeProvider theme={theme}>
+        <AppContainer>
+          <Navigation />
+          <ContentWrapper>
+            <Route
+              exact
+              path={routes.LANDING}
+              component={() => <LandingPage />}
+            />
+            <Route
+              exact
+              path={routes.SIGN_UP}
+              component={() => <SignUpPage />}
+            />
+            <Route
+              exact
+              path={routes.SIGN_IN}
+              component={() => <SignInPage />}
+            />
+            <Route
+              exact
+              path={routes.PASSWORD_FORGET}
+              component={() => <PasswordForgetPage />}
+            />
+            <Route exact path={routes.HOME} component={() => <HomePage />} />
+            <Route
+              exact
+              path={routes.ACCOUNT}
+              component={() => <AccountPage />}
+            />
+          </ContentWrapper>
+        </AppContainer>
+      </ThemeProvider>
     </Router>
   );
 };
