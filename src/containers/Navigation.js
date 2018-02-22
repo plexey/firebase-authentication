@@ -12,11 +12,20 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  grid-row-start: main-1;
+  grid-row-end: main-2;
+  width: 100%;
+  box-shadow: inset 0 -2px 0 0 black;
 `;
+
+const Spacer = styled.div`
+  flex-grow: 1;
+`
 
 const LinkList = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 `;
 
 const activeClassName = "active-link";
@@ -29,16 +38,20 @@ const StyledLink = styled(NavLink).attrs({
   color: white;
   font-size: 17px;
   text-decoration: none;
-  background: blue;
-  /* height: 100%; */
+  background: none;
   padding: 0 15px 0 15px;
   font-weight: bold;
   transition: 200ms ease all;
-  /* height: 100%; */
+  font-family: ${props => props.theme.font};
+
+  ${StyledLink}:hover {
+    background: hsl(0, 0%, 20%);
+    color: ${props => props.theme.brandColor};
+  }
 
   &.${activeClassName} {
-    color: yellow;
     background: hsl(0, 0%, 20%);
+    color: ${props => props.theme.brandColor};
   }
 `;
 
@@ -55,6 +68,7 @@ const NavigationAuth = () => (
       <StyledLink exact to={routes.LANDING}>Landing</StyledLink>
       <StyledLink exact to={routes.HOME}>Home</StyledLink>
       <StyledLink exact to={routes.ACCOUNT}>Account</StyledLink>
+      <Spacer></Spacer>
       <SignOutButton />
   </LinkList>
 );
@@ -62,6 +76,7 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
   <LinkList>
       <StyledLink exact to={routes.LANDING}>Landing</StyledLink>
+      <Spacer></Spacer>
       <StyledLink exact to={routes.SIGN_IN}>Sign In</StyledLink>
   </LinkList>
 );
