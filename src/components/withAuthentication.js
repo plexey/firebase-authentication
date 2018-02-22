@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import { firebase } from "../firebase";
@@ -23,9 +23,9 @@ const withAuthentication = Component => {
     onSetAuthUser: authUser => dispatch({ type: "AUTH_USER_SET", authUser })
   });
 
-  WithAuthentication.childContextTypes = {
-    authUser: PropTypes.object
-  };
+  // WithAuthentication.childContextTypes = {
+  //   authUser: PropTypes.object
+  // };
 
   return connect(null, mapDispatchToProps)(WithAuthentication);
 };
