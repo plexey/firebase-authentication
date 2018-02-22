@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { auth } from "../firebase";
+import Input from '../components/Input';
+import Button from '../components/Button';
+import ContentHeading from '../components/ContentHeading';
+import Content from '../components/Content';
 
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
+  <Content>
+    <ContentHeading>PasswordForget</ContentHeading>
     <PasswordForgetForm />
-  </div>
+  </Content>
 );
 
 const byPropKey = (propertyName, value) => () => ({
@@ -48,7 +51,7 @@ class PasswordForgetForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+        <Input
           value={this.state.email}
           onChange={event =>
             this.setState(byPropKey("email", event.target.value))
@@ -56,9 +59,9 @@ class PasswordForgetForm extends Component {
           type="text"
           placeholder="Email Address"
         />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+        <Button disabled={isInvalid} type="submit">
+          Reset Email
+        </Button>
 
         {error && <p>{error.message}</p>}
       </form>
