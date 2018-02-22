@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { compose } from "recompose";
-
 import withAuthorization from "./withAuthorization";
 import { db } from "../firebase";
+import Content from '../components/Content';
+import ContentHeading from '../components/ContentHeading';
+import Subheading from '../components/Subheading';
 
 class HomePage extends Component {
   componentDidMount() {
@@ -16,20 +17,21 @@ class HomePage extends Component {
   render() {
     const { users } = this.props;
     return (
-      <div>
-        <h1>Home</h1>
+      <Content>
+        <ContentHeading>Home</ContentHeading>
         <p>The Home Page is accessible by every signed in user.</p>
 
         {!!users && <UserList users={users} />}
-      </div>
+      </Content>
     );
   }
 }
 
 const UserList = ({ users }) => (
   <div>
-    <h2>List of Usernames of Users</h2>
+    <Subheading>List of Usernames of Users</Subheading>
     <p>(Saved on Sign Up in Firebase Database)</p>
+    <br />
 
     {Object.keys(users).map(key => <div key={key}>{users[key].username}</div>)}
   </div>
