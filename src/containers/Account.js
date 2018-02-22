@@ -2,17 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import PropTypes from "prop-types";
-
 import { PasswordForgetForm } from "./PasswordForget";
 import PasswordChangeForm from "./PasswordChange";
 import withAuthorization from "./withAuthorization";
+import Content from "../components/Content";
+import ContentHeading from "../components/ContentHeading";
 
 const AccountPage = ({ authUser }) => (
-  <div>
-    <h1>Account: {authUser.email}</h1>
+  <Content>
+    <ContentHeading>Account: {authUser.email}</ContentHeading>
     <PasswordForgetForm />
     <PasswordChangeForm />
-  </div>
+  </Content>
 );
 
 AccountPage.contextTypes = {
