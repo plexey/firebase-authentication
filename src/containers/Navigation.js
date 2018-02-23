@@ -7,7 +7,7 @@ import styled from "styled-components";
 import * as routes from "../constants/routes";
 
 const Wrapper = styled.div`
-  background: hsl(0, 50%, 50%);
+  background: ${props => props.theme.brandColor};
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -20,12 +20,21 @@ const Wrapper = styled.div`
 
 const Spacer = styled.div`
   flex-grow: 1;
-`
+`;
 
 const LinkList = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+`;
+
+const Heading = styled.h1`
+  font-family: ${props => props.theme.font};
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 20px;
+  font-size: 25px;
+  font-weight: bold;
 `;
 
 const activeClassName = "active-link";
@@ -35,11 +44,11 @@ const StyledLink = styled(NavLink).attrs({
 })`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${props => props.theme.textColor};
   font-size: 17px;
   text-decoration: none;
   background: none;
-  padding: 0 15px 0 15px;
+  padding: 0 25px 0 25px;
   font-weight: bold;
   transition: 200ms ease all;
   font-family: ${props => props.theme.font};
@@ -65,19 +74,31 @@ Navigation.contextTypes = {
 
 const NavigationAuth = () => (
   <LinkList>
-      <StyledLink exact to={routes.LANDING}>Landing</StyledLink>
-      <StyledLink exact to={routes.HOME}>Home</StyledLink>
-      <StyledLink exact to={routes.ACCOUNT}>Account</StyledLink>
-      <Spacer></Spacer>
-      <SignOutButton />
+    <Heading>Placeholder</Heading>
+    <StyledLink exact to={routes.LANDING}>
+      Landing
+    </StyledLink>
+    <StyledLink exact to={routes.HOME}>
+      Home
+    </StyledLink>
+    <StyledLink exact to={routes.ACCOUNT}>
+      Account
+    </StyledLink>
+    <Spacer />
+    <SignOutButton />
   </LinkList>
 );
 
 const NavigationNonAuth = () => (
   <LinkList>
-      <StyledLink exact to={routes.LANDING}>Landing</StyledLink>
-      <Spacer></Spacer>
-      <StyledLink exact to={routes.SIGN_IN}>Sign In</StyledLink>
+    <Heading>Placeholder</Heading>
+    <StyledLink exact to={routes.LANDING}>
+      Landing
+    </StyledLink>
+    <Spacer />
+    <StyledLink exact to={routes.SIGN_IN}>
+      Sign In
+    </StyledLink>
   </LinkList>
 );
 
