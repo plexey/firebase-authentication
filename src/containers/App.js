@@ -14,7 +14,7 @@ import ContentWrapper from '../components/ContentWrapper';
 import styled, { ThemeProvider } from "styled-components";
 
 const theme = {
-  brandColor: "hsl(0, 70%, 60%)",
+  brandColor: "hsl(140, 70%, 65%)",
   textColor: "hsl(0, 0%, 20%)",
   font: "'Oxygen', sans-serif",
 };
