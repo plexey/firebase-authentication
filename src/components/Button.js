@@ -10,6 +10,7 @@ const Button = styled.button`
   padding: 10px 15px 10px 15px;
   cursor: pointer;
   font-weight: bold;
+  border: solid 2px hsl(0, 0%, 20%);
 
   ${Button}:hover {
     color: ${props => props.theme.brandColor};
