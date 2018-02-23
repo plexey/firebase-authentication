@@ -10,6 +10,7 @@ const Input = styled.input`
   color: ${props => props.theme.textColor};
   min-width: 200px;
   margin: 0 10px 10px 0;
+  border: solid 2px hsl(0, 0%, 20%);
 `
 
 export default Input;
