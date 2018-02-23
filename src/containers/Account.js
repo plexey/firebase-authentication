@@ -7,10 +7,12 @@ import PasswordChangeForm from "./PasswordChange";
 import withAuthorization from "./withAuthorization";
 import Content from "../components/Content";
 import ContentHeading from "../components/ContentHeading";
+import Subheading from '../components/Subheading';
 
 const AccountPage = ({ authUser }) => (
   <Content>
-    <ContentHeading>Account: {authUser.email}</ContentHeading>
+    <ContentHeading>Account</ContentHeading>
+    <Subheading>{authUser.email}</Subheading>
     <PasswordForgetForm />
     <PasswordChangeForm />
   </Content>
