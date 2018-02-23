@@ -5,7 +5,7 @@ const Subheading = styled.h2`
   font-family: ${props => props.theme.font};
   font-size: 20px;
   font-weight: bold;
-  margin: 20px 0 20px 0;
+  margin: 0 0 30px 0;
 `
 
 export default Subheading;
