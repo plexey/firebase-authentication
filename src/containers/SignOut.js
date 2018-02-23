@@ -5,7 +5,7 @@ import { auth } from '../firebase';
 const Button = styled.button`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${props => props.theme.textColor};
   font-size: 17px;
   text-decoration: none;
   background: none;
